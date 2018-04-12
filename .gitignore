@@ -1,3 +1,5 @@
 *wallet*
+!*wallet.bat
+!*wallet-cli.exe
 *.log
 *.DS_Store
