@@ -1,5 +1,8 @@
 *wallet*
 !*wallet.bat
 !*wallet-cli.exe
+!*amd64.exe
+DERO/data/mainnet/*
+DERO/dero_windows_amd64/dero-wallet-cli-windows-amd64.exe.log
 *.log
 *.DS_Store
