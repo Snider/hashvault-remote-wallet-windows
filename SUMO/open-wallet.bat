@@ -1,2 +1,2 @@
 cd data
-..\sumokoin.win.x64.v0-3-0-0\sumo-wallet-cli.exe --daemon-host=nodes.hashvault.pro --wallet-file=wallet
+..\sumokoin.win.x64.v0-3-4-0\sumo-wallet-cli.exe --daemon-host=nodes.hashvault.pro --wallet-file=wallet
