@@ -1,5 +1,4 @@
 @ECHO OFF
-PUSHD "%~dp0"
 
 REM Access all your wallets with one command line program
 TITLE HashVault public nodes for wallets
@@ -8,6 +7,7 @@ GOTO START
 
 :START
 COLOR a
+PUSHD "%~dp0"
 
 ECHO SELECT A COIN
 ECHO.
