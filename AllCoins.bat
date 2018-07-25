@@ -101,7 +101,7 @@ IF /I %coin% == XTL (SET execFile=stellite-wallet-cli.exe)
 REM Final words...
 CLS
 CD cli\
-%execFile% %arg%
+%execFile% %arg% --daemon-host=nodes.hashvault.pro
 
 COLOR b
 CHOICE /t 5 /d N /M "Wallet closed. Do you wish to go back to the main menu?"
