@@ -64,12 +64,12 @@ GOTO exec
 
 :2
 SET /p walletName=Name of your new wallet:
-SET arg="--generate-from-keys=%walletName%"
+SET arg=--generate-from-keys=%walletName%
 GOTO exec
 
 :3
 SET /p walletName=Name of your new wallet:
-SET arg="--generate-new-wallet=%walletName% --restore-deterministic-wallet"
+SET arg=--generate-new-wallet=%walletName% --restore-deterministic-wallet
 GOTO exec
 
 :4
