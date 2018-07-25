@@ -30,7 +30,7 @@ SET /p coin=
 IF %coin%==x EXIT
 IF NOT EXIST "%coin%\" (
 	COLOR C
-	ECHO Invalid selection, or folder with wallet is missnig
+	ECHO Invalid selection, or folder with wallet is missing
 	TIMEOUT 3
 	CLS
 	GOTO START
@@ -57,7 +57,7 @@ ECHO.
 DIR /B *. | findstr /v /i ".gitkeep$" 
 ECHO.
 SET /p walletName=Load wallet:
-SET arg=--wallet-file=wallet
+SET arg=--wallet-file=%walletName%
 cd..
 GOTO exec
 
