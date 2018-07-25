@@ -1,15 +1,13 @@
 @ECHO OFF
-COLOR a
 PUSHD "%~dp0"
 
-TITLE HashVault public wallet nodes
-
-REM prototype alpha proof-of-concept
-REM check if wallet already exists in future versions, number it (or use HHMMDDMMYY or whatnot as default when creating new)
+REM Access all your wallets with one command line program
+TITLE HashVault public nodes for wallets
 
 GOTO START
 
 :START
+COLOR a
 
 ECHO SELECT A COIN
 ECHO.
@@ -29,11 +27,20 @@ ECHO XTL (Stellite)
 ECHO.
 
 SET /p coin=
+IF %coin%==x EXIT
+IF NOT EXIST "%coin%\" (
+	COLOR C
+	ECHO Invalid selection, or folder with wallet is missnig
+	TIMEOUT 3
+	CLS
+	GOTO START
+)
 CD %coin%
-CLS
-
+GOTO choice
 
 :choice
+CLS  
+ECHO %coin% wallet options
 ECHO 1) Open wallet
 ECHO 2) Restore from keys
 ECHO 3) Restore from seed
@@ -54,6 +61,7 @@ SET arg=--wallet-file=wallet
 cd..
 GOTO exec
 
+
 :2
 SET /p walletName=Name of your new wallet:
 SET arg="--generate-from-keys=%walletName%"
@@ -71,7 +79,7 @@ GOTO exec
 
 :exec
 
-REM Look mom! No look-up tab-... Oh. 
+REM Look mom! I haven't used look-up tab-... Oh. 
 IF /I %coin% == AEON (SET execFile=aeon-wallet-cli.exe)
 IF /I %coin% == DERO (SET execFile=dero-wallet-cli-windows-amd64.exe)
 IF /I %coin% == ETN  (SET execFile=electroneum-wallet-cli.exe)
@@ -96,5 +104,8 @@ CD cli\
 %execFile% %arg%
 
 COLOR b
-ECHO Wallet closed. Press any key to exit
-PAUSE >NUL
+CHOICE /t 5 /d N /M "Wallet closed. Do you wish to go back to the main menu?"
+IF ERRORLEVEL 2 EXIT
+
+CLS
+GOTO START
